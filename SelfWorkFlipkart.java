@@ -1,10 +1,7 @@
-package day4;
-
-import java.util.List;
+package day5;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SelfWorkFlipkart {
@@ -12,28 +9,23 @@ public class SelfWorkFlipkart {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
 		driver.get("https://www.flipkart.com/");
 		
-		List<WebElement> sizeOfLink = driver.findElements(By.tagName("a"));
-		System.out.println("Number of Links: " + sizeOfLink.size());
+		driver.findElement(By.xpath("//span[text()='TVs & Appliances']")).click();
 		
-		List<WebElement> inputSize = driver.findElements(By.tagName("input"));
-		System.out.println("Number of input field: " + inputSize.size());
+		driver.findElement(By.xpath("//a[@class='wI1dRI']")).click();
 		
-		List<WebElement> numberOfSpan = driver.findElements(By.tagName("span"));
-		System.out.println("Number of span tags: " + numberOfSpan.size());
+		driver.findElement(By.xpath("//span[text()='Become a Seller']")).click();
 		
-		for(WebElement eleSpan : numberOfSpan) {
-			System.out.println("Name of Span:" + eleSpan.getText());
-		}
+		driver.findElement(By.xpath("//button[text()='Start Selling']")).click();
 		
-		for(WebElement eleInput : inputSize) {
-			System.out.println("Name of Input field: " + eleInput.getText());
-		}
+		driver.findElement(By.xpath("//input[@name='mobileNumber']")).sendKeys("7000592671");
 		
-		for(WebElement ele : sizeOfLink) {
-			System.out.println("Name of Links: " + ele.getText());
-		}
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("koyels586@gmail.com");
+		
+		driver.findElement(By.xpath("//div[text()='Only Books']")).click();
 
 	}
 
