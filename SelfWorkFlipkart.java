@@ -1,7 +1,8 @@
-package day5;
+package day8;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SelfWorkFlipkart {
@@ -13,19 +14,16 @@ public class SelfWorkFlipkart {
 		
 		driver.get("https://www.flipkart.com/");
 		
-		driver.findElement(By.xpath("//span[text()='TVs & Appliances']")).click();
+		WebElement searchProducts = driver.findElement(By.xpath("//input[@class='lNPl8b']"));
+		searchProducts.sendKeys("TV");
 		
-		driver.findElement(By.xpath("//a[@class='wI1dRI']")).click();
+		WebElement searchButton = driver.findElement(By.xpath("//button[@class='kV1UjG']"));
+		searchButton.click();
 		
-		driver.findElement(By.xpath("//span[text()='Become a Seller']")).click();
+		WebElement pricePrint = driver.findElement(By.xpath("//div[@class='RG5Slk']/../../..//div[@class='hZ3P6w DeU9vF']"));
+		System.out.println(pricePrint.getText());
 		
-		driver.findElement(By.xpath("//button[text()='Start Selling']")).click();
 		
-		driver.findElement(By.xpath("//input[@name='mobileNumber']")).sendKeys("7000592671");
-		
-		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("koyels586@gmail.com");
-		
-		driver.findElement(By.xpath("//div[text()='Only Books']")).click();
 
 	}
 
